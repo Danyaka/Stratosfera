@@ -1,0 +1,27 @@
+{% extends 'Base/base.html.twig' %}
+
+{% block title %} Вход {% endblock %}
+{% block user %} Не авторизован {% endblock %}
+{% block body %}
+
+    <form method="POST">
+        <h1>Вход в систему</h1>
+        {% if isEmptyLogin %}
+            <div>Введите логин</div>
+        {% endif %}
+        <label for="inputLogin">Логин</label>
+        <input name="login" id="inputLogin">
+        {% if isEmptyPassword %}
+            <div>Введите пароль</div>
+        {% endif %}
+        <label for="inputPassword">Пароль</label>
+        <input type="password" name="password" id="inputPassword">
+        <button>Войти</button>
+        {% if loginError %}
+            <div>Неверный логин или пароль</div>
+        {% endif %}
+
+    </form>
+
+
+{% endblock %}

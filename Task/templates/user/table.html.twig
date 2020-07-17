@@ -1,0 +1,32 @@
+{% extends 'Base/base.html.twig' %}
+
+{% block title %} {{ title }} {% endblock %}
+
+{% block body %}
+    <p><a href="{{ path('user_create') }}">Создать пользователя</a></p>
+
+    <table border="1" width="100%" cellpadding="5">
+        <tr>
+            <th>Id</th>
+            <th>Логин</th>
+            <th>Пароль</th>
+            <th>Действия</th>
+
+        </tr>
+
+        {% for user in allUsers %}
+        <tr>
+            <td>{{ user.getId }}</td>
+            <td>{{ user.getLogin }}</td>
+            <td>{{ user.getPassword }}</td>
+            <td>
+                <button>Удалить</button>
+                <button>Изменить</button>
+            </td>
+
+        </tr>
+        {% endfor %}
+
+    </table>
+
+{% endblock %}
